@@ -1,0 +1,86 @@
+<section class="container-fluid pt-3">
+  <div class="row">
+    <div class = "col-lg-6">
+      <img src="{{imagen}}" width="100%" class="imagen-main">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let imagem of imagens">
+          <div class="slide-imagen mat-ripple" (click)="changeIamgen(imagem)">
+            <img src="{{imagem}}">
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+
+    </div>
+    <div class = "col-lg-6">
+      <h1 class="font-bold mb-4">{{produto.titulo}}</h1>
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- cores -->
+          <div id="cors" class="font-medium mt-3 mb-4">
+            Cores {{corSelect}}
+            <div class="row">
+              <div class="col-lg-2 text-center font-regular" *ngFor="let c of cors" (click)="selectCor(c.nome)">
+                <div class="cors mat-ripple" style="background-color:{{c.cor}}"></div>
+                <small class="text-center">{{c.nome}}</small>
+              </div>
+            </div>
+          </div>
+          <!-- --- -->
+
+          <!-- tamanho -->
+          <div id="size" class="font-medium">
+            Tamanho {{sizeSelect}}
+            <div class="row">
+              <div class="col-lg-1 m-1 text-center size font-regular" *ngFor="let t of size"
+                   (click)="selectSize(t.nome)">
+                {{t.nome}}
+              </div>
+            </div>
+          </div>
+          <!-- --- -->
+
+          <!-- quantidade -->
+          <div id="quantity" class="mt-5" *ngIf="quantityAvailable > 0">
+            <p class="font-regular">Quantidade Disponível <b>{{quantityAvailable}}</b></p>
+            <mat-form-field class="w-50">
+              <mat-label class="font-regular">quantas peças você quer</mat-label>
+              <input type="number" matInput autocomplete="off">
+            </mat-form-field>
+          </div>
+          <!-- --- -->
+
+        </div>
+        <div class="col-lg-4">
+          <app-add-to-bag class="mt-3 mb-3"></app-add-to-bag>
+
+          <hr class="mt-3">
+
+          <div class="cep mb-3 mt-3">
+            <div id="info-cep">
+              <img src="../../../assets/images/location.svg" width="20px">
+              CEP: 06528-090
+            </div>
+            <div class="row mt-1">
+              <div class="col-lg-8 text-left">
+                receber em até <b>3 dia útil</b>
+              </div>
+              <div class="col-lg-4 text-right">
+                <b>R$ 9,99</b>
+              </div>
+            </div>
+          </div>
+
+          <hr class="mt-3">
+
+          <button class="w-100 mt-3 mb-3 bg-pink color-white" mat-raised-button>Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="bg-detail-product" class=" mt-5">
+  <section class="container-fluid pt-3 pl-5 pr-5" style="width: 900px">
+    <h1 class="text-center mt-5 font-regular">DESCRIÇÃO DO PRODUTO</h1>
+    <div [innerHTML]="produto.descricao" class="mt-5"></div>
+  </section>
+</section>

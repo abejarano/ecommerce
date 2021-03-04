@@ -1,0 +1,25 @@
+.filter {
+  cursor: pointer;
+}
+.body-filter{
+  max-height: 190px;
+  overflow: auto;
+}
+.title-prod {
+  max-height: 20px;
+  overflow: hidden;
+  font-weight: normal;
+}
+
+.circle-color {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+}
+
+@media only screen and (min-width: 75em){
+.col-lg-4 {
+  flex-basis: 29.33333333% !important;
+  max-width: 29.33333333% !important;
+}
+}

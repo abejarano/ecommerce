@@ -1,0 +1,18 @@
+<section class="row center-lg bg-gray">
+  <div class="col" *ngFor="let item of categories">
+    <button mat-menu-item [matMenuTriggerFor]="menu" *ngIf="item.filhos.length > 0" class="font-medium">{{item.nome}}</button>
+    <button mat-menu-item *ngIf="item.filhos.length == 0" class="font-medium">{{item.nome}}</button>
+    <mat-menu #menu="matMenu">
+      <ng-container *ngFor="let child of item.filhos">
+        <button mat-menu-item *ngIf="item.filhos.length == 0" routerLink="/search/{{child.url}}" class="font-regular">{{child.nome}}</button>
+        <button mat-menu-item [matMenuTriggerFor]="childMenu" *ngIf="child.filhos.length > 0" routerLink="/search/{{child.url}}" class="font-regular">{{child.nome}}</button>
+        <mat-menu #childMenu="matMenu">
+          <ng-container *ngFor="let childTwo of child.filhos">
+            <button mat-menu-item routerLink="/search/{{childTwo.url}}" class="font-regular">{{childTwo.nome}}</button>
+          </ng-container>
+        </mat-menu>
+      </ng-container>
+    </mat-menu>
+  </div>
+</section>
+

@@ -1,0 +1,63 @@
+<section class="container-fluid pt-3">
+  <section class = "row">
+    <div class="col-lg-3">
+      <div class="title mb-5">
+        <h3 class="font-medium">Filtros</h3>
+      </div>
+
+      <div id = "filter-size">
+        <h4 class="bg-pink color-white p-2 font-regular text-uppercase">Tamanhos</h4>
+        <div class="body-filter pl-3 pt-2">
+          <div class="mb-3" *ngFor="let size of sizes">
+            <mat-checkbox class="font-regular">{{size.descricao}}</mat-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <div id="filter-cors">
+        <h4 class="bg-light-green color-white p-2 font-regular text-uppercase">Cores</h4>
+        <div class="body-filter pl-3 pt-2">
+          <div class="filter mb-3" *ngFor="let cor of cors">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="circle-color" style="background-color: {{cor.cor}}"></div>
+              </div>
+              <div class="col-lg-9">
+                {{cor.descricao}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-lg-9">
+      <div class="title mb-5">
+        <h3 class="font-medium">{{word}}</h3>
+      </div>
+      <div class="row">
+        <mat-card class="m-3 col-lg-4" *ngFor="let prod of products">
+          <mat-card-content routerLink="/product/{{prod.url}}" style="cursor: pointer">
+            <img mat-card-image src="{{prod.imagem}}" alt="{{prod.tititulo}}">
+            <mat-card-title class="text-left title-prod font-medium">{{prod.titulo}}</mat-card-title>
+            <b class="font-thin reais">{{prod.valor_reais}}</b>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="row">
+              <div class="col-md-8">
+                <app-add-to-bag (click)="addItems(prod.publicacao_id)"></app-add-to-bag>
+              </div>
+              <div class="col-md-2">
+                <img src="../../../assets/images/corazon-contorno.png" width="30px" class="mt-2 ml-5">
+              </div>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+
+    </div>
+  </section>
+</section>

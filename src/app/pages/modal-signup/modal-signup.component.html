@@ -1,0 +1,51 @@
+<div class="title">
+  <h2>Cadastro</h2>
+</div>
+<div mat-dialog-content>
+  <p>
+    Crie uma nova conta hoje para colher os benefícios de uma experiência de compra personalizada.
+  </p>
+
+  <form [formGroup]="form" autocomplete="off">
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-form-field class="w-100">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="first_name">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-form-field class="w-100">
+          <mat-label>Sobrenome</mat-label>
+          <input matInput formControlName="last_name">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field class="w-100">
+      <mat-label>E-mail</mat-label>
+      <input type="email" matInput formControlName="email">
+    </mat-form-field>
+    <div class = "row">
+      <div class="col-lg-6">
+        <mat-form-field class="w-100">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput formControlName="password" autocomplete="off">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-form-field class="w-100">
+          <mat-label>Confirmar senha</mat-label>
+          <input type="password" matInput formControlName="pass" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="closed()">Cancelar</button>
+  <button mat-raised-button class = "bg-pink color-white" (click)="setMakeRegister()" [disabled]="request">Criar Conta</button>
+</div>

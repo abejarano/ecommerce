@@ -1,0 +1,22 @@
+<div class="title">
+  <h2>Login</h2>
+</div>
+<div mat-dialog-content>
+  <form [formGroup]="form" autocomplete="off">
+
+    <mat-form-field class="w-100">
+      <mat-label>E-mail</mat-label>
+      <input type="email" matInput formControlName="email" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Senha</mat-label>
+      <input type="password" matInput formControlName="password" autocomplete="off">
+    </mat-form-field>
+
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="closed()">Cancelar</button>
+  <button mat-raised-button class = "bg-pink color-white" (click)="setMakeLogin()" [disabled]="request">Entrar</button>
+</div>

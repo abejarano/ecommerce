@@ -1,0 +1,27 @@
+<section class="container-fluid pt-3">
+  <div class="title mb-5">
+    <h2>Produtos Mais recentes</h2>
+  </div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let prod of products">
+      <mat-card class = "m-3">
+        <mat-card-content routerLink="/product/{{prod.url}}" style="cursor: pointer">
+          <img mat-card-image src="{{prod.imagem}}" alt="{{prod.tititulo}}">
+          <mat-card-title class="text-left title-prod font-medium">{{prod.titulo}}</mat-card-title>
+          <b class="font-thin reais">{{prod.valor_reais}}</b>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="row">
+            <div class="col-md-8">
+              <app-add-to-bag (click)="addItems(prod.publicacao_id)"></app-add-to-bag>
+            </div>
+            <div class="col-md-2">
+              <img src="../../../assets/images/corazon-contorno.png" class="mt-2 ml-5">
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </ng-template>
+
+  </owl-carousel-o>
+</section>
